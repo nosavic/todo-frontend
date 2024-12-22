@@ -1,0 +1,14 @@
+<li>
+  <%= task.description %> - <%= task.state %> <% if (task.state !== 'completed')
+  { %>
+  <form
+    action="/api/tasks/<%= task._id %>"
+    method="POST"
+    style="display: inline"
+  >
+    <input type="hidden" name="_method" value="PATCH" />
+    <input type="hidden" name="state" value="completed" />
+    <button type="submit">Mark as Completed</button>
+  </form>
+  <% } %>
+</li>
